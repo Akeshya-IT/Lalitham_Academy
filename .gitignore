@@ -36,3 +36,9 @@ yarn-error.log*
 # Playwright
 dashboard/test-results/
 dashboard/playwright-report/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
