@@ -190,10 +190,10 @@ const statsObserver = new IntersectionObserver(
       statsObserver.disconnect();
     }
   },
-  { threshold: 0.5 }
+  { threshold: 0.1 }
 );
 
-const statsSection = $('.hero__stats');
+const statsSection = $('.hero__card-stats');
 if (statsSection) statsObserver.observe(statsSection);
 
 /* ═══════════════════════════════════════════════════════════════
