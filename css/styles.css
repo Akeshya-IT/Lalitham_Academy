@@ -1224,6 +1224,180 @@ color: rgba(124,58,237,0.06);
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   PLAN SUMMARY CARDS (index.html courses section)
+   ═══════════════════════════════════════════════════════════════ */
+
+.plan-summary-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.plan-summary-card:hover {
+  border-color: rgba(124,58,237,0.35);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card);
+}
+
+.plan-summary-card--featured {
+  border-color: rgba(124,58,237,0.4);
+  background: linear-gradient(160deg, rgba(124,58,237,0.06) 0%, rgba(37,99,235,0.04) 100%);
+  box-shadow: 0 0 0 2px rgba(124,58,237,0.2), var(--shadow-card);
+}
+
+.plan-summary-card__header {
+  padding: 28px 28px 20px;
+  flex: 1;
+}
+.plan-summary-card__header h3 {
+  font-size: 1.35rem;
+  color: var(--clr-text);
+  margin-bottom: 12px;
+}
+.plan-summary-card__header p {
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.plan-summary-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  border-top: 1px solid var(--clr-border-subtle);
+  background: rgba(124,58,237,0.03);
+}
+
+.plan-summary-card__count {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  font-weight: 500;
+}
+
+.plan-summary-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--clr-primary);
+  transition: var(--transition);
+}
+.plan-summary-card:hover .plan-summary-card__cta {
+  gap: 10px;
+}
+
+/* Sub-page layout */
+.plan-page {
+  padding-top: var(--navbar-h);
+  min-height: 100vh;
+  background: var(--clr-bg);
+}
+
+.plan-page__hero {
+  background: var(--clr-bg-alt);
+  padding: 48px 0 40px;
+  position: relative;
+}
+.plan-page__hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124,58,237,0.3), transparent);
+}
+
+.plan-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--clr-primary);
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: var(--transition);
+}
+.plan-page__back:hover { gap: 12px; }
+
+.plan-page__title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--clr-text);
+  margin-bottom: 12px;
+}
+.plan-page__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.plan-page__desc {
+  font-size: 1rem;
+  color: var(--clr-text-muted);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.plan-page__courses {
+  padding: 48px 0 80px;
+}
+.plan-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .plan-page__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .plan-page__grid { grid-template-columns: 1fr; }
+}
+
+.course-detail-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+}
+.course-detail-card:hover {
+  border-color: rgba(124,58,237,0.3);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+.course-detail-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+.course-detail-card__price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--clr-primary);
+  font-family: var(--font-display);
+}
+.course-detail-card__price small {
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PRICING
    ═══════════════════════════════════════════════════════════════ */
 .pricing {
