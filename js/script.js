@@ -406,6 +406,55 @@ if (phoneInput) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   WHATSAPP CHAT POPUP
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  const widget  = $('#waWidget');
+  const fab     = $('#waFab');
+  const popup   = $('#waPopup');
+  const closeBtn= $('#waClose');
+  const input   = $('#waInput');
+  const sendBtn = $('#waSend');
+  if (!widget || !fab) return;
+
+  const WA_NUMBER = '919676302549';
+  const DEFAULT_MSG = 'Hi! I want to know more about your courses.';
+
+  function openPopup() {
+    widget.classList.add('open');
+    popup.setAttribute('aria-hidden', 'false');
+    input.focus();
+  }
+  function closePopup() {
+    widget.classList.remove('open');
+    popup.setAttribute('aria-hidden', 'true');
+  }
+
+  fab.addEventListener('click', () => {
+    widget.classList.contains('open') ? closePopup() : openPopup();
+  });
+  closeBtn.addEventListener('click', closePopup);
+
+  function sendMessage() {
+    const msg = input.value.trim() || DEFAULT_MSG;
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank', 'noopener');
+    input.value = '';
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMessage(); });
+
+  // Auto-open after 4 seconds on first visit
+  if (!sessionStorage.getItem('waShown')) {
+    setTimeout(() => {
+      openPopup();
+      sessionStorage.setItem('waShown', '1');
+    }, 4000);
+  }
+})();
+
+/* ═══════════════════════════════════════════════════════════════
    INIT COMPLETE
    ═══════════════════════════════════════════════════════════════ */
 console.log('%c Lalitham Academy %c Loaded ✓',
