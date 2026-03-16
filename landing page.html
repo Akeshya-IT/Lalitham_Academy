@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lalitham Academy – Enroll Now</title>
+  <meta name="description"
+    content="Fun and meaningful online learning for kids. Yoga, Maths, English, Telugu, Dance & more." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --purple: #7C3AED;
+      --purple-light: #a78bfa;
+      --blue: #2563EB;
+      --green: #22C55E;
+      --glass-bg: rgba(255, 255, 255, 0.07);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --glass-hover: rgba(255, 255, 255, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a1a;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(124, 58, 237, 0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 110%, rgba(37, 99, 235, 0.3) 0%, transparent 60%);
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+
+    /* Animated orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: #7C3AED;
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: #2563EB;
+      bottom: -100px;
+      right: -100px;
+      animation-delay: -4s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px) scale(1);
+      }
+
+      50% {
+        transform: translateY(30px) scale(1.05);
+      }
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 18px 60px;
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: rgba(124, 58, 237, 0.85);
+      backdrop-filter: blur(12px);
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #fff;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+    }
+
+    .logo-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 8px;
+    }
+
+    .hero-telugu {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 36px;
+    }
+
+    /* ── HERO ILLUSTRATION ── */
+    .hero-visual {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      margin: 0 auto 36px;
+    }
+
+    /* Central glowing card */
+    .hero-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.6), rgba(37, 99, 235, 0.5));
+      border: 1.5px solid rgba(167, 139, 250, 0.5);
+      backdrop-filter: blur(20px);
+      border-radius: 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      box-shadow: 0 0 40px rgba(124, 58, 237, 0.5), 0 0 80px rgba(124, 58, 237, 0.2);
+      animation: pulse-center 3s ease-in-out infinite;
+      z-index: 10;
+    }
+
+    .hero-center .center-icon {
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+
+    .hero-center .center-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes pulse-center {
+
+      0%,
+      100% {
+        box-shadow: 0 0 40px rgba(124, 58, 237, 0.5), 0 0 80px rgba(124, 58, 237, 0.2);
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      50% {
+        box-shadow: 0 0 60px rgba(124, 58, 237, 0.75), 0 0 120px rgba(124, 58, 237, 0.3);
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+    }
+
+    /* Orbiting ring */
+    .orbit-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 240px;
+      height: 240px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px dashed rgba(167, 139, 250, 0.2);
+      animation: spin-ring 18s linear infinite;
+    }
+
+    @keyframes spin-ring {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    /* Subject bubbles on orbit */
+    .bubble {
+      position: absolute;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      font-size: 1.3rem;
+      animation: counter-spin 18s linear infinite;
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .bubble:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: scale(1.15) !important;
+    }
+
+    .bubble span {
+      font-size: 0.45rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    @keyframes counter-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+
+    /* Place each bubble around the orbit ring */
+    .b1 {
+      top: -26px;
+      left: calc(50% - 26px);
+    }
+
+    .b2 {
+      top: calc(50% - 26px);
+      right: -26px;
+    }
+
+    .b3 {
+      bottom: -26px;
+      left: calc(50% - 26px);
+    }
+
+    .b4 {
+      top: calc(50% - 26px);
+      left: -26px;
+    }
+
+    .b5 {
+      top: 12px;
+      right: 12px;
+    }
+
+    .b6 {
+      bottom: 12px;
+      left: 12px;
+    }
+
+    /* Floating emoji icons around (not on ring) */
+    .float-icon {
+      position: absolute;
+      font-size: 1.6rem;
+      pointer-events: none;
+      opacity: 0.6;
+      animation: float-icon 5s ease-in-out infinite;
+    }
+
+    .fi1 {
+      top: 2px;
+      left: 8px;
+      animation-delay: 0s;
+    }
+
+    .fi2 {
+      top: 10px;
+      right: 6px;
+      animation-delay: -1.5s;
+    }
+
+    .fi3 {
+      bottom: 6px;
+      right: 10px;
+      animation-delay: -3s;
+    }
+
+    .fi4 {
+      bottom: 2px;
+      left: 4px;
+      animation-delay: -2s;
+    }
+
+    @keyframes float-icon {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(-5deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(5deg);
+      }
+    }
+
+    /* Sparkle particles */
+    .sparkle {
+      position: absolute;
+      border-radius: 50%;
+      background: #a78bfa;
+      animation: sparkle-anim 2.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .sp1 {
+      width: 5px;
+      height: 5px;
+      top: 20px;
+      left: 60px;
+      animation-delay: 0s;
+    }
+
+    .sp2 {
+      width: 4px;
+      height: 4px;
+      top: 40px;
+      right: 50px;
+      animation-delay: -0.8s;
+      background: #60a5fa;
+    }
+
+    .sp3 {
+      width: 6px;
+      height: 6px;
+      bottom: 30px;
+      right: 60px;
+      animation-delay: -1.6s;
+      background: #f472b6;
+    }
+
+    .sp4 {
+      width: 4px;
+      height: 4px;
+      bottom: 50px;
+      left: 55px;
+      animation-delay: -2.2s;
+      background: #34d399;
+    }
+
+    .sp5 {
+      width: 3px;
+      height: 3px;
+      top: 80px;
+      left: 20px;
+      animation-delay: -1s;
+      background: #fbbf24;
+    }
+
+    @keyframes sparkle-anim {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.4);
+      }
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(124, 58, 237, 0.6);
+    }
+
+    .btn-wa {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-glass {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-glass:hover {
+      background: var(--glass-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ── STATS ── */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 40px 0;
+    }
+
+    .stat-pill {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      border-radius: 999px;
+      padding: 10px 22px;
+      text-align: center;
+    }
+
+    .stat-pill strong {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--purple-light);
+    }
+
+    .stat-pill span {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--purple-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 24px;
+    }
+
+    /* ── GLASS CARD ── */
+    .glass-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 18px;
+      padding: 22px 24px;
+      transition: all 0.25s ease;
+    }
+
+    .glass-card:hover {
+      background: var(--glass-hover);
+      border-color: rgba(167, 139, 250, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(124, 58, 237, 0.2);
+    }
+
+    /* ── PLAN CARDS ── */
+    .plans {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .plan-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .plan-card.popular-card {
+      border-color: rgba(167, 139, 250, 0.5);
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(37, 99, 235, 0.15));
+    }
+
+    .plan-left h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .plan-left p {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .plan-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .plan-price {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--purple-light);
+    }
+
+    .plan-price small {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 400;
+    }
+
+    .plan-arrow {
+      font-size: 1.4rem;
+      color: var(--purple-light);
+      flex-shrink: 0;
+    }
+
+    .pop-pill {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-bottom: 4px;
+    }
+
+    /* ── COURSE PILLS ── */
+    .pills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 48px;
+    }
+
+    .pill {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 7px 15px;
+      border-radius: 999px;
+      transition: all 0.2s;
+    }
+
+    .pill:hover {
+      background: var(--glass-hover);
+      border-color: var(--purple-light);
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+    }
+
+    .step-body h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .step-body p {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 0 0 40px;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(37, 99, 235, 0.25));
+      border: 1px solid rgba(167, 139, 250, 0.3);
+      backdrop-filter: blur(20px);
+      border-radius: 22px;
+      padding: 44px 28px;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .final-cta p {
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+
+    .contact-links {
+      margin-top: 18px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.83rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .contact-links a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+    }
+
+    .contact-links a:hover {
+      color: var(--purple-light);
+    }
+
+    @media (max-width: 500px) {
+      .plan-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .plan-right {
+        text-align: left;
+      }
+
+      .plan-arrow {
+        align-self: flex-end;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="top-bar">🎉 &nbsp;Now accepting new students — Limited seats available!</div>
+
+  <div class="page-wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="logo">
+        <div class="logo-mark">L</div>
+        <span class="logo-name">Lalitham Academy</span>
+      </div>
+
+      <!-- Animated Illustration -->
+      <div class="hero-visual">
+        <!-- Sparkles -->
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+        <div class="sparkle sp4"></div>
+        <div class="sparkle sp5"></div>
+
+        <!-- Floating corner icons -->
+        <div class="float-icon fi1">⭐</div>
+        <div class="float-icon fi2">✨</div>
+        <div class="float-icon fi3">🌟</div>
+        <div class="float-icon fi4">💫</div>
+
+        <!-- Orbit Ring with bubbles -->
+        <div class="orbit-ring">
+          <div class="bubble b1">🎨<span>Art</span></div>
+          <div class="bubble b2">🧮<span>Maths</span></div>
+          <div class="bubble b3">💃<span>Dance</span></div>
+          <div class="bubble b4">🧘<span>Yoga</span></div>
+          <div class="bubble b5">✏️<span>English</span></div>
+          <div class="bubble b6">🗣️<span>Telugu</span></div>
+        </div>
+
+        <!-- Center Card -->
+        <div class="hero-center">
+          <span class="center-icon">🎓</span>
+          <span class="center-label">Lalitham</span>
+        </div>
+      </div>
+
+      <h1>Fun &amp; Meaningful<br><span>Learning Programs</span><br>for Kids &amp; Adults</h1>
+      <p class="hero-sub">English · Telugu · Yoga · Dance · Maths · Arts &amp; More</p>
+      <p class="hero-telugu">పిల్లలు మరియు మహిళలు కోసం సృజనాత్మక విద్యా ప్రయాణం!</p>
+      <div class="cta-group">
+        <a href="#plans" class="btn btn-primary">Explore Plans</a>
+        <a href="https://wa.me/919676302549" target="_blank" rel="noopener" class="btn btn-wa">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-pill"><strong>500+</strong><span>Students</span></div>
+      <div class="stat-pill"><strong>10+</strong><span>Teachers</span></div>
+      <div class="stat-pill"><strong>15+</strong><span>Courses</span></div>
+      <div class="stat-pill"><strong>98%</strong><span>Satisfaction</span></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PLANS -->
+    <div id="plans">
+      <span class="section-label">Our Plans</span>
+      <h2 class="section-title">Pick Your Learning Plan</h2>
+      <p class="section-sub">Click a plan to explore all available courses.</p>
+
+      <div class="plans">
+
+        <a href="basic-plan.html" class="glass-card plan-card">
+          <div class="plan-left">
+            <h3>Basic Plan</h3>
+            <p>Up to 20 students · Yoga, Dance, Drawing, Rubik's Cube &amp; more</p>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">₹499 <small>/ batch</small></div>
+          </div>
+          <div class="plan-arrow">→</div>
+        </a>
+
+        <a href="advanced-plan.html" class="glass-card plan-card popular-card">
+          <div class="plan-left">
+            <span class="pop-pill">⭐ Popular</span>
+            <h3>Advanced Plan</h3>
+            <p>Small batch of 5 · English, Telugu, Hindi, Speed Maths &amp; more</p>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">₹899+ <small>/ month</small></div>
+          </div>
+          <div class="plan-arrow">→</div>
+        </a>
+
+        <a href="one-to-one.html" class="glass-card plan-card">
+          <div class="plan-left">
+            <h3>One-to-One Coaching</h3>
+            <p>Dedicated personal mentor · 100% your pace &amp; schedule</p>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">₹2,500+ <small>/ month</small></div>
+          </div>
+          <div class="plan-arrow">→</div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- COURSES -->
+    <div>
+      <span class="section-label">Courses</span>
+      <h2 class="section-title">What We Teach</h2>
+      <p class="section-sub">16 courses across language, academics, wellness &amp; arts.</p>
+      <div class="pills-wrap">
+        <span class="pill">✏️ English 360°</span>
+        <span class="pill">🔤 Phonics</span>
+        <span class="pill">📗 Grammar</span>
+        <span class="pill">🗣️ Telugu</span>
+        <span class="pill">🗣️ Hindi</span>
+        <span class="pill">🧮 Speed Maths</span>
+        <span class="pill">⚔️ Karrasamu</span>
+        <span class="pill">🧩 Rubik's Cube</span>
+        <span class="pill">✖️ Maths Tables</span>
+        <span class="pill">✍️ Handwriting</span>
+        <span class="pill">🧘 Yoga — Kids</span>
+        <span class="pill">🧘 Yoga — Women</span>
+        <span class="pill">🏃 Exercise</span>
+        <span class="pill">💃 Dance</span>
+        <span class="pill">🎨 Drawing</span>
+        <span class="pill">✂️ Crafts &amp; Lipan Art</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- HOW IT WORKS -->
+    <div>
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Start in 4 Easy Steps</h2>
+      <p class="section-sub">Takes less than 5 minutes to get enrolled.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Pick a Course or Plan</h4>
+            <p>Browse and choose what fits your child's interest and age.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Fill the Registration Form</h4>
+            <p>Quick form — name, grade, and subject of interest.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Make Payment</h4>
+            <p>Pay via UPI, Net Banking, or Card. Secure &amp; transparent.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Start Learning!</h4>
+            <p>Get your schedule, join the first live class, and enjoy!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+      <h2>Join 500+ Learners Today 🎓</h2>
+      <p>Call us or WhatsApp — we'll help you pick the right course.</p>
+      <a href="https://wa.me/919676302549" target="_blank" rel="noopener" class="btn btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        WhatsApp: +91 96763 02549
+      </a>
+      <div class="contact-links">
+        <a href="tel:+919676302549">📞 +91 96763 02549</a>
+        <a href="mailto:info@lalithamacademy.com">✉️ info@lalithamacademy.com</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
